@@ -16,28 +16,26 @@ public class LockInterruptiblyDemo {
 
     public static void main(String[] args) throws Throwable {
         /** 可中断锁 */
-//        Thread t1 = new Thread(new ReentrantLockThread(lock1, lock2));
-//        Thread t2 = new Thread(new ReentrantLockThread(lock2, lock1));
+        Thread t1 = new Thread(new ReentrantLockThread(lock1, lock2));
+        Thread t2 = new Thread(new ReentrantLockThread(lock2, lock1));
 
         /** 不可中断锁 */
-        Thread t1 = new Thread(new SynchronizedThread(object1, object2));
-        Thread t2 = new Thread(new SynchronizedThread(object2, object1));
+//        Thread t1 = new Thread(new SynchronizedThread(object1, object2));
+//        Thread t2 = new Thread(new SynchronizedThread(object2, object1));
 
         t1.start();
         t2.start();
-        System.out.println(t1.getName() + "中断");
+
         //主线程睡眠1秒，避免线程t1直接响应run方法中的睡眠中断
         Thread.sleep(1000);
+        System.out.println("线程" + t1.getName() + "，t1开始执行interrupt()");
         t1.interrupt();
-        //阻塞主线程，避免所有线程直接结束，影响死锁效果
-        Thread.sleep(10000);
     }
 
     /**
      * ReentrantLock的lockInterruptibly实现死锁
      */
     static class ReentrantLockThread implements Runnable {
-
         private ReentrantLock lock1;
         private ReentrantLock lock2;
 
@@ -57,9 +55,8 @@ public class LockInterruptiblyDemo {
             } finally {
                 lock1.unlock();
                 lock2.unlock();
-                System.out.println("线程" + Thread.currentThread().getName() + "正常结束");
+                System.out.println("线程" + Thread.currentThread().getName() + "，正常结束");
             }
-
         }
     }
 
@@ -67,7 +64,6 @@ public class LockInterruptiblyDemo {
      * Synchronized实现死锁
      */
     static class SynchronizedThread implements Runnable {
-
         private Object lock1;
         private Object lock2;
 
@@ -89,8 +85,6 @@ public class LockInterruptiblyDemo {
             } finally {
                 System.out.println("线程" + Thread.currentThread().getName() + "正常结束");
             }
-
         }
     }
-
 }
