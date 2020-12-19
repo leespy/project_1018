@@ -2,6 +2,9 @@ package com.muse.thread;
 
 import java.util.concurrent.Semaphore;
 
+/**
+ * 测试Semaphore
+ */
 public class SemaphoreDemo implements Runnable {
 
     Semaphore semaphore = new Semaphore(5);

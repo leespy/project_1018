@@ -1,9 +1,9 @@
 /*
  * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
  */
-package com.muse;
+package com.muse.reflect;
 
-public class Person1 {
+public class Person {
 
     public String name;
 
@@ -11,24 +11,16 @@ public class Person1 {
 
     private Byte sex;
 
-    Boolean isMarriage1;
+    Boolean isMarriage;
 
-    public Person1() {
+    public Person() {
     }
 
-    public Person1(String name, Integer age, Byte sex, Boolean isMarriage1) {
+    public Person(String name, Integer age, Byte sex, Boolean isMarriage) {
         this.name = name;
         this.age = age;
         this.sex = sex;
-        this.isMarriage1 = isMarriage1;
-    }
-
-    public Boolean getMarriage1() {
-        return isMarriage1;
-    }
-
-    public void setMarriage1(Boolean marriage1) {
-        isMarriage1 = marriage1;
+        this.isMarriage = isMarriage;
     }
 
     public String getName() {
@@ -55,4 +47,11 @@ public class Person1 {
         this.sex = sex;
     }
 
+    public Boolean getMarriage() {
+        return isMarriage;
+    }
+
+    public void setMarriage(Boolean marriage) {
+        isMarriage = marriage;
+    }
 }

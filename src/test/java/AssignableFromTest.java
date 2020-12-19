@@ -4,9 +4,9 @@
 
 import org.junit.Test;
 
-import com.muse.Animal;
-import com.muse.Dog;
-import com.muse.EveryThing;
+import com.muse.reflect.Animal;
+import com.muse.reflect.Dog;
+import com.muse.reflect.EveryThing;
 
 /**
  * Date 2020/10/14 10:11 上午

@@ -1,15 +1,13 @@
-import java.lang.annotation.Repeatable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.List;
 
-import org.checkerframework.checker.units.qual.C;
 import org.junit.Test;
 
 import com.google.common.collect.Lists;
-import com.muse.Animal;
-import com.muse.Dog;
-import com.muse.Person;
+import com.muse.reflect.Animal;
+import com.muse.reflect.Dog;
+import com.muse.reflect.Person;
 
 /*
  * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
@@ -26,7 +24,7 @@ public class ReflectionTest {
         Class personClazz1 = person.getClass();
 
         // 方式三  Class.forName("类的全路径")
-        Class personClazz2 = Class.forName("com.muse.Person");
+        Class personClazz2 = Class.forName("com.muse.reflect.Person");
 
         System.out.println(personClazz == personClazz1);
 
@@ -36,10 +34,10 @@ public class ReflectionTest {
 
     /**
      * // 无参数
-     * <bean id="person" class="com.muse.Person" />
+     * <bean id="person" class="com.muse.reflect.Person" />
      *
      * // 有参数
-     * <bean id="person" class="com.muse.Person" >
+     * <bean id="person" class="com.muse.reflect.Person" >
      *    <constructor-arg index="0" type="java.lang.String" value="muse"/>
      * </bean>
      *
