@@ -5,6 +5,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 测试中断锁&非中断锁
+ *
+ * @author muse
  */
 public class LockInterruptiblyDemo {
 

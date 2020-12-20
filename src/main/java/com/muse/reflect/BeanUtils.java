@@ -5,6 +5,10 @@ package com.muse.reflect;
 
 import java.lang.reflect.Field;
 
+/**
+ *
+ * @author muse
+ */
 public class BeanUtils {
 
     public static void convertor(Object originObj, Object targetObj) throws Throwable{

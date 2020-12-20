@@ -5,7 +5,7 @@ package com.muse.jdkdp;
 
 /**
  * Date 2020/10/24 10:46 上午
- * Author lijinlong02@baidu.com
+ * @author muse
  */
 public class SwitchGame implements Game {
 

@@ -5,6 +5,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 测试Condition
+ *
+ * @author muse
  */
 public class ConditionDemo {
 

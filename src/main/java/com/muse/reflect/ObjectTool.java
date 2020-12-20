@@ -3,6 +3,9 @@
  */
 package com.muse.reflect;
 
+/**
+ * @author muse
+ */
 public class ObjectTool {
 
 

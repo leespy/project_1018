@@ -3,6 +3,10 @@
  */
 package com.muse.reflect;
 
+/**
+ *
+ * @author muse
+ */
 public interface Inter<T> {
 
     void show(T t);

@@ -5,6 +5,7 @@ package com.muse.reflect;
 
 /**
  * Date 2020/10/14 10:29 上午
+ * @author muse
  */
 public interface EveryThing {
 

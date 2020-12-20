@@ -8,6 +8,8 @@ import java.util.concurrent.CyclicBarrier;
  * 同学们去春游
  * 首先：同学们都先上公司门口的大巴。人齐了之后，巴士出发。
  * 其次：所有巴士都到达景点后，大家集合，开始春游。
+ *
+ * @author muse
  */
 public class CyclicBarrierDemo {
 

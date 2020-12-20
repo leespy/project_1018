@@ -6,7 +6,7 @@ package com.muse.jdkdp;
 /**
  * JDK Dynamic Proxy
  * Date 2020/10/24 10:42 上午
- * Author lijinlong02@baidu.com
+ * @author muse
  */
 public interface Game {
 

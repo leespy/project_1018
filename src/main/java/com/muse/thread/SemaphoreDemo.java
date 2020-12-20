@@ -4,6 +4,8 @@ import java.util.concurrent.Semaphore;
 
 /**
  * 测试Semaphore
+ *
+ * @author muse
  */
 public class SemaphoreDemo implements Runnable {
 
