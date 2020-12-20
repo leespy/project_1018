@@ -49,7 +49,7 @@ class CountDownLatchRunning implements Runnable {
         try {
             Random random = new Random();
             Integer sleepTime = random.nextInt(1000);
-            TimeUnit.MILLISECONDS.sleep(sleepTime); // 任务执行了1秒
+            TimeUnit.MILLISECONDS.sleep(sleepTime);
             /** 子任务发生异常，也被算作子任务执行完毕。不会影响其他线程和CountDownLatch */
 //            if (i == 3) {
 //                throw new RuntimeException();

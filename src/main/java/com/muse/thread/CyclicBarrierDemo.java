@@ -42,6 +42,7 @@ class Student implements Runnable {
         try {
             System.out.println("学生" + studenNo + ", 已经上巴士。");
             cyclicBarrier.await();
+
             System.out.println("学生" + studenNo + ", 巴士已经到达目的地。");
             cyclicBarrier.await();
         } catch (Throwable e) {
