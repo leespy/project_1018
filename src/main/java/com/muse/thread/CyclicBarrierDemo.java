@@ -50,6 +50,9 @@ class Student implements Runnable {
     }
 }
 
+/**
+ * barrierAction：每当计数器一次计数完成后——CyclicBarrier.await()时，系统会执行的动作。
+ */
 class Master implements Runnable {
 
     private static int step = 1;

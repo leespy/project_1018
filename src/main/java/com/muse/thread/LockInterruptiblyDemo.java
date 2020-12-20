@@ -1,5 +1,6 @@
 package com.muse.thread;
 
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -18,19 +19,24 @@ public class LockInterruptiblyDemo {
 
     public static void main(String[] args) throws Throwable {
         /** 可中断锁 */
-        Thread t1 = new Thread(new ReentrantLockThread(lock1, lock2));
-        Thread t2 = new Thread(new ReentrantLockThread(lock2, lock1));
+//        Thread t1 = new Thread(new ReentrantLockThread(lock1, lock2));
+//        Thread t2 = new Thread(new ReentrantLockThread(lock2, lock1));
 
         /** 不可中断锁 */
-//        Thread t1 = new Thread(new SynchronizedThread(object1, object2));
-//        Thread t2 = new Thread(new SynchronizedThread(object2, object1));
+        Thread t1 = new Thread(new SynchronizedThread(object1, object2));
+        Thread t2 = new Thread(new SynchronizedThread(object2, object1));
 
         t1.start();
         t2.start();
 
         //主线程睡眠1秒，避免线程t1直接响应run方法中的睡眠中断
-        Thread.sleep(1000);
-        System.out.println("线程" + t1.getName() + "，t1开始执行interrupt()");
+        System.out.println("主线程开始沉睡第1秒！");
+        TimeUnit.MILLISECONDS.sleep(1000);
+        System.out.println("主线程开始沉睡第2秒！");
+        TimeUnit.MILLISECONDS.sleep(1000);
+        System.out.println("主线程开始沉睡第3秒！");
+        TimeUnit.MILLISECONDS.sleep(1000);
+        System.out.println("主线程线程" + t1.getName() + "，在t1上开始执行interrupt()");
         t1.interrupt();
     }
 
