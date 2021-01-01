@@ -1,6 +1,5 @@
 package com.muse.thread;
 
-import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 

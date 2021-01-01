@@ -22,12 +22,15 @@ public class LockSupportDemo {
         thread2.start();
         /** unpark方法，将thread1的一个许可变为［可用］状态*/
         LockSupport.unpark(thread1);
+        // thread1.interrupt();
         System.out.println("LockSupport.unpark(thread1) 执行完毕 ");
         /** unpark方法，将thread2的一个许可变为［可用］状态*/
         LockSupport.unpark(thread2);
+        // thread2.interrupt();
         System.out.println("LockSupport.unpark(thread2) 执行完毕 ");
     }
 }
+
 
 class RunningDemo implements Runnable {
 
@@ -43,6 +46,7 @@ class RunningDemo implements Runnable {
              * 如果该许可是[可用]状态，那么park()方法会立即返回，消费这个许可，将该许可消变更为[不可用]状态，流程代码可以继续执行。
              */
             LockSupport.park();
+            System.out.println("Thread.interrupted() = " + Thread.interrupted());
             System.out.println(Thread.currentThread().getName() + "运行结束！");
         }
     }
