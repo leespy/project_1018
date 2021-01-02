@@ -12,7 +12,6 @@ public class FinallyTest {
         int b = test1();
     }
 
-
     private int test1() {
         int b = 20;
         try {
