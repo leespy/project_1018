@@ -7,8 +7,8 @@ package com.muse.reflect;
  * Date 2020/10/14 10:13 上午
  * @author muse
  */
-public class Dog extends Animal {
+public class WhiteDog extends Dog {
     public void play() {
-        System.out.println("Dog play!");
+        System.out.println("WhiteDog play!");
     }
 }

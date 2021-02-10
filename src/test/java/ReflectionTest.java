@@ -113,7 +113,7 @@ public class ReflectionTest {
      * 去读，不去写
      */
     @Test
-    public void tesePECSExtends() {
+    public void testPECSExtends() {
         List<Dog> dogs = Lists.newArrayList();
         dogs.add(new Dog());
 

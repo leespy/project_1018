@@ -19,8 +19,7 @@ public class FinallyTest {
             return b += 80;
         } catch (Exception e) {
             System.out.println("catch block");
-        }
-        finally {
+        } finally {
             System.out.println("finally block");
             if (b > 25) {
                 System.out.println("b>25, b=" + b);
