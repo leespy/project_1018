@@ -20,7 +20,7 @@ public class BeanUtils {
         Field[] orginFields =  orginClazz.getDeclaredFields();
         Field[] targetFields =  targetClazz.getDeclaredFields();
 
-        // 第三步：赋值呗
+        // 第三步：赋值
         for (Field originField : orginFields) {
             for (Field targetField : targetFields) {
                 if (originField.getName().equals(targetField.getName())) {
@@ -41,7 +41,10 @@ public class BeanUtils {
 
         BeanUtils.convertor(person, person1);
 
-        System.out.println("person, person1" + person + person1);
+        System.out.println("person" + person);
+
+        System.out.println("person1" + person1);
+
     }
 }
 

@@ -58,4 +58,13 @@ public class Person1 {
         this.sex = sex;
     }
 
+    @Override
+    public String toString() {
+        return "Person1{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                ", isMarriage1=" + isMarriage1 +
+                '}';
+    }
 }

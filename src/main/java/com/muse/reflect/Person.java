@@ -8,13 +8,13 @@ package com.muse.reflect;
  */
 public class Person {
 
-    public String name;
+    public String name = "muse";
 
-    protected Integer age;
+    protected Integer age = 1;
 
-    private Byte sex;
+    private Byte sex = (byte) 1;
 
-    Boolean isMarriage;
+    Boolean isMarriage = true;
 
     public Person() {
     }
@@ -56,5 +56,15 @@ public class Person {
 
     public void setMarriage(Boolean marriage) {
         isMarriage = marriage;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                ", isMarriage=" + isMarriage +
+                '}';
     }
 }
