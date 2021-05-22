@@ -21,9 +21,7 @@ public class FinallyTest {
             System.out.println("catch block");
         } finally {
             System.out.println("finally block");
-            if (b > 25) {
-                System.out.println("b>25, b=" + b);
-            }
+            System.out.println("b>25, b=" + b);
         }
         return b;
     }

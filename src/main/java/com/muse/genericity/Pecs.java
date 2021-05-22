@@ -2,6 +2,8 @@ package com.muse.genericity;
 
 import java.util.List;
 
+import org.omg.CORBA.OBJ_ADAPTER;
+
 import com.google.common.collect.Lists;
 import com.muse.reflect.Animal;
 import com.muse.reflect.Cat;
@@ -12,16 +14,23 @@ import com.muse.reflect.WhiteDog;
  * PECS(Producer Extends Consumer Super)
  *
  * https://www.cnblogs.com/huoqm/p/13931363.html
+ * https://www.cnblogs.com/zhaoyibing/p/9051428.html
  */
 public class Pecs {
+
+    public static void main(String[] args) {
+        testPECSextends();
+        testPECSsuper();
+    }
 
     /**
      * 【读取】
      * 如果要从集合中读取类型T的数据，并且不能写入，可以使用 ? extends 通配符；(Producer Extends)
+     * List<? extends Animal> animals 里面能够存放什么呢？
+     * 动物、狗、猫、猪、鸡... 只要是动物，都有可能被存入进animals里。
      */
-    public void testPECSextends() {
-        List<Dog> dogs = Lists.newArrayList();
-        dogs.add(new Dog());
+    public static void testPECSextends() {
+        List<Dog> dogs = Lists.newArrayList(new Dog());
         List<? extends Animal> animals = dogs;
 
         /**
@@ -37,6 +46,7 @@ public class Pecs {
          * 由于编译器知道它总是Fruit的子类型，因此我们总可以从中读取出Animal对象：
          */
         Animal animal = animals.get(0);
+        Object obj = animals.get(0);
         // Dog dog = animals.get(0); // 编译失败
     }
 
@@ -45,8 +55,9 @@ public class Pecs {
      * 如果要从集合中写入类型T的数据，并且不需要读取，可以使用 ? super 通配符；(Consumer Super)
      * <p>
      * 如果既要存又要取，那么就不要使用任何通配符。
+     *
      */
-    public void testPECSsuper() {
+    public static void testPECSsuper() {
         List<Animal> animals = Lists.newArrayList();
         List<? super Dog> dogs = animals;
         /**

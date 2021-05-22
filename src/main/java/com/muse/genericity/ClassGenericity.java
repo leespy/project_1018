@@ -6,6 +6,7 @@ package com.muse.genericity;
  * @author muse
  */
 public class ClassGenericity {
+
     public static void main(String[] args) {
         //创建对象并指定元素类型
         ObjectTool<String> tool = new ObjectTool<>();
@@ -20,11 +21,15 @@ public class ClassGenericity {
     }
 
     static class ObjectTool<T> {
+
         private T obj;
+
         public T getObj() {
+
             return obj;
         }
         public void setObj(T obj) {
+
             this.obj = obj;
         }
     }

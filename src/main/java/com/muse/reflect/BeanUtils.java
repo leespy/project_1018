@@ -35,7 +35,7 @@ public class BeanUtils {
         // Service层返回的
         Person person = new Person("muse", 10, (byte)1, true);
 
-        // 需要返回给前段实体对象
+        // 需要返回实体对象
         Person1 person1 = new Person1();
 
         BeanUtils.convertor(person, person1);

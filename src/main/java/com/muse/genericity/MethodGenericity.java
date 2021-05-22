@@ -21,6 +21,7 @@ public class MethodGenericity<T> {
     static class ObjectTool {
         //定义泛型方法..
         public <T> void show(T t) {
+
             System.out.println(t);
         }
     }

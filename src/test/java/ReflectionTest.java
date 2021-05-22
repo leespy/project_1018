@@ -50,19 +50,19 @@ public class ReflectionTest {
         Class personClazz = Class.forName("com.muse.reflect.Person");
 
         /** 其次：通过Class对象，创建构造方法对象 */
-        Constructor constructor1 = personClazz.getConstructor(String.class, Integer.class, Byte.class,
+        Constructor constructor1 = personClazz.getConstructor(); // 初始化无参构造方法
+        Constructor constructor2 = personClazz.getConstructor(String.class, Integer.class, Byte.class,
                 Boolean.class); // 初始化有参构造方法对象
-        Constructor constructor = personClazz.getConstructor(); // 初始化无参构造方法
 
         /** 最后：通过构造方法创建对象 */
         // 调用无参数构造方法创建Person对象
-        Person person = (Person) constructor.newInstance();
-        person.setName("muse1");
-        System.out.println("person=" + person);
+        Person person1 = (Person) constructor1.newInstance();
+        person1.setName("muse1");
+        System.out.println("person1=" + person1);
 
         // 调用有参数构造方法创建Person对象
-        Person person1 = (Person) constructor1.newInstance("muse1", 10, (byte) 1, true);
-        System.out.println("person1=" + person1);
+        Person person2 = (Person) constructor2.newInstance("muse2", 10, (byte) 1, true);
+        System.out.println("person2=" + person2);
     }
 
     /**
@@ -104,7 +104,7 @@ public class ReflectionTest {
 
         // 第三步：通过Class对象，获得Field对象
         Field sexField = personClazz.getDeclaredField("sex");
-        sexField.setAccessible(true);
+        // sexField.setAccessible(true);
 
         // 第四步：操作Field，获得属性值
         System.out.println(sexField.get(person));
@@ -126,8 +126,8 @@ public class ReflectionTest {
         Person person = (Person) personClazz.getConstructor().newInstance();
 
         /** 第三：通过Class对象，获得Field对象 */
-        Field nameField = personClazz.getField("name");
-        // Field nameField = personClazz.getDeclaredField("name");  使用getDeclaredField也是ok的。
+        Field nameField = personClazz.getDeclaredField("name");
+        // Field nameField = personClazz.getField("name");
 
         /**
          * Field.toString();
@@ -167,9 +167,9 @@ public class ReflectionTest {
         Person person = (Person) personClazz.getConstructor().newInstance();
 
         /** 第三：通过Class对象，获得Field对象 */
-        // Field sexField = personClazz.getField("sex");  不能使用getField，否则报错：java.lang.NoSuchFieldException: sex
+        // Field sexField = personClazz.getField("sex");  // 不能使用getField，否则报错：java.lang.NoSuchFieldException: sex
         Field sexField = personClazz.getDeclaredField("sex");
-        sexField.setAccessible(true); // 必须设置为true
+        // sexField.setAccessible(true); // 必须设置为true
 
         /** 最后：获取字段的类型 */
         Byte sex = (Byte) sexField.get(person);
@@ -191,7 +191,7 @@ public class ReflectionTest {
 
         /** 第三：通过Class对象，获得Field对象 */
         Field ageField = personClazz.getDeclaredField("age");
-        ageField.setAccessible(true); // 必须设置为true，如果不设置，则报错：java.lang.IllegalAccessException: Class ReflectionTest can not access a member of class com.muse.Person with modifiers "protected"
+        // ageField.setAccessible(true); // 必须设置为true，如果不设置，则报错：java.lang.IllegalAccessException: Class ReflectionTest can not access a member of class com.muse.Person with modifiers "protected"
 
         /** 最后：获取字段的类型 */
         Integer age = (Integer) ageField.get(person);
@@ -213,7 +213,7 @@ public class ReflectionTest {
 
         /** 第三：通过Class对象，获得Field对象 */
         Field isMarriageField = personClazz.getDeclaredField("isMarriage");
-        isMarriageField.setAccessible(true); // 必须设置为true，如果不设置，则报错：java.lang.IllegalAccessException: Class ReflectionTest can not access a member of class com.muse.Person with modifiers ""
+        // isMarriageField.setAccessible(true); // 必须设置为true，如果不设置，则报错：java.lang.IllegalAccessException: Class ReflectionTest can not access a member of class com.muse.Person with modifiers ""
 
         /** 最后：获取字段的类型 */
         Boolean isMarriage = (Boolean) isMarriageField.get(person);
