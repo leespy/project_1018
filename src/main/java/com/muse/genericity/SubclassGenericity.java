@@ -12,13 +12,12 @@ public class SubclassGenericity {
         i.show("hello");
 
         // 编译错误
-        //        Inter<Integer> ii = new InterImpl1();
-        //        ii.show(1);
+//        Inter<Integer> ii = new InterImpl1();
+//        ii.show(1);
 
         // 第二种情况测试
         Inter<String> iii = new InterImpl2();
         iii.show("100");
-
     }
 }
 

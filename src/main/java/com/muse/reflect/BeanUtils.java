@@ -6,7 +6,6 @@ package com.muse.reflect;
 import java.lang.reflect.Field;
 
 /**
- *
  * @author muse
  */
 public class BeanUtils {

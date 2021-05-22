@@ -7,7 +7,6 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 
 /**
- * Date 2020/10/24 10:52 上午
  * @author muse
  */
 public class JDKSPTest {

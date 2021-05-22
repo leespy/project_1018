@@ -4,7 +4,6 @@
 package com.muse.reflect;
 
 /**
- * Date 2020/10/14 10:12 上午
  * Author muse
  */
 public class Animal implements EveryThing{

@@ -2,17 +2,28 @@ package com.muse.genericity;
 
 /**
  * 桥接方法
+ * 1> 类型擦除 javac ——> class 泛型被擦除了！
+ * 2> 泛型虽然被擦除了，但是，你一定要给我保留泛型的行为！
  * @param <T>
  */
-public class Node<T> {
-    public T data;
-    public void setData(T data) {
+public class Node {
+    public Object data;
+    public void setData(Object data) {
         this.data = data;
     }
 }
 
-class MyNode extends Node<Integer> {
-    @Override
+/**
+ * 桥接方法
+ */
+class MyNode extends Node {
+
     public void setData(Integer data) {
+        super.setData(data);
+    }
+
+    @Override
+    public void setData(Object data) {
+        setData((Integer) data);
     }
 }

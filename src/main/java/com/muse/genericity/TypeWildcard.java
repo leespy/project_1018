@@ -18,7 +18,7 @@ public class TypeWildcard {
         TypeWildcard typeWildcard = new TypeWildcard();
         typeWildcard.test1(LIST_INTEGER);
 
-        // typeWildcard.test2(LIST_INTEGER);
+        // typeWildcard.test2(LIST_STRING);
         typeWildcard.test2(LIST_OBJECT);
 
         typeWildcard.test3(LIST_INTEGER);
@@ -46,14 +46,15 @@ public class TypeWildcard {
 
     public void test3(List<?> list) {
         for (int i = 0; i < list.size(); i++) {
-            // list.add(list.get(0)); 编译错误
+            // list.add(list.get(0)); // 编译错误
             System.out.println(list.get(i));
         }
     }
 
     public <T> void test4(List<T> list) {
         for (int i = 0; i < list.size(); i++) {
-            // list.add(list.get(0)); 编译阶段ok，但是运行时抛异常，Exception in thread "main" java.lang.UnsupportedOperationException
+            // list.add(list.get(0)); // 编译阶段ok，但是运行时抛异常，Exception in thread "main" java.lang
+            // .UnsupportedOperationException
             System.out.println(list.get(i));
         }
     }

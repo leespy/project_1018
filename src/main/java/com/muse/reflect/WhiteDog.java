@@ -4,7 +4,6 @@
 package com.muse.reflect;
 
 /**
- * Date 2020/10/14 10:13 上午
  * @author muse
  */
 public class WhiteDog extends Dog {

@@ -50,16 +50,19 @@ public class ReflectionTest {
         Class personClazz = Class.forName("com.muse.reflect.Person");
 
         /** 其次：通过Class对象，创建构造方法对象 */
-        Constructor constructor1 = personClazz.getConstructor(String.class, Integer.class, Byte.class, Boolean.class); // 初始化有参构造方法对象
+        Constructor constructor1 = personClazz.getConstructor(String.class, Integer.class, Byte.class,
+                Boolean.class); // 初始化有参构造方法对象
         Constructor constructor = personClazz.getConstructor(); // 初始化无参构造方法
 
         /** 最后：通过构造方法创建对象 */
+        // 调用无参数构造方法创建Person对象
         Person person = (Person) constructor.newInstance();
-        person.setName("muse");
-        System.out.println(person);
+        person.setName("muse1");
+        System.out.println("person=" + person);
 
-        Person person1 = (Person) constructor1.newInstance("muse", 10, (byte) 1, true);
-        System.out.println(person1);
+        // 调用有参数构造方法创建Person对象
+        Person person1 = (Person) constructor1.newInstance("muse1", 10, (byte) 1, true);
+        System.out.println("person1=" + person1);
     }
 
     /**
