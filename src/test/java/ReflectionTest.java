@@ -1,5 +1,6 @@
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.List;
 
 import org.junit.Test;
@@ -10,7 +11,6 @@ import com.muse.reflect.Dog;
 import com.muse.reflect.Person;
 
 /*
- * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
  */
 public class ReflectionTest {
 
@@ -77,9 +77,9 @@ public class ReflectionTest {
 
         // 第二步：获得构造方法
         Constructor<Person> constructor = personClazz.getConstructor();
-        Person person = constructor.newInstance();
+        Person person = constructor.newInstance(); // 初始化生成Person对象
 
-        // 第三步：通过Class对象，获得Field对象
+        // 第三步：通过Class对象，获得Field对象  Person[类]的name属性。
         Field nameField = personClazz.getField("name");
 
         // 第四步：操作Field，获得属性值
@@ -104,7 +104,7 @@ public class ReflectionTest {
 
         // 第三步：通过Class对象，获得Field对象
         Field sexField = personClazz.getDeclaredField("sex");
-        // sexField.setAccessible(true);
+        sexField.setAccessible(true);
 
         // 第四步：操作Field，获得属性值
         System.out.println(sexField.get(person));
@@ -126,8 +126,8 @@ public class ReflectionTest {
         Person person = (Person) personClazz.getConstructor().newInstance();
 
         /** 第三：通过Class对象，获得Field对象 */
+        // Field nameField = personClazz.getField("name"); // 不报错
         Field nameField = personClazz.getDeclaredField("name");
-        // Field nameField = personClazz.getField("name");
 
         /**
          * Field.toString();
@@ -169,11 +169,17 @@ public class ReflectionTest {
         /** 第三：通过Class对象，获得Field对象 */
         // Field sexField = personClazz.getField("sex");  // 不能使用getField，否则报错：java.lang.NoSuchFieldException: sex
         Field sexField = personClazz.getDeclaredField("sex");
-        // sexField.setAccessible(true); // 必须设置为true
+        sexField.setAccessible(true); // 必须设置为true
 
         /** 最后：获取字段的类型 */
         Byte sex = (Byte) sexField.get(person);
-        System.out.println(sex);
+        System.out.println("private属性：sex=" + sex);
+
+        /** 补充内容：获取private类型的方法 */
+        // Method method = personClazz.getMethod("privateMethod"); // 不能使用getMethod，否则报错：java.lang.NoSuchMethodException: com.muse.reflect.Person.privateMethod()
+        Method method = personClazz.getDeclaredMethod("privateMethod");
+        method.setAccessible(true); // 必须设置为true
+        System.out.println("private方法：privateMethod()=" + method.invoke(person));
     }
 
     /**
@@ -190,8 +196,9 @@ public class ReflectionTest {
         Person person = (Person) personClazz.getConstructor().newInstance();
 
         /** 第三：通过Class对象，获得Field对象 */
+        // Field ageField = personClazz.getField("age"); // java.lang.NoSuchFieldException: age
         Field ageField = personClazz.getDeclaredField("age");
-        // ageField.setAccessible(true); // 必须设置为true，如果不设置，则报错：java.lang.IllegalAccessException: Class ReflectionTest can not access a member of class com.muse.Person with modifiers "protected"
+        ageField.setAccessible(true); // 必须设置为true，如果不设置，则报错：java.lang.IllegalAccessException: Class ReflectionTest can not access a member of class com.muse.Person with modifiers "protected"
 
         /** 最后：获取字段的类型 */
         Integer age = (Integer) ageField.get(person);
@@ -212,8 +219,9 @@ public class ReflectionTest {
         Person person = (Person) personClazz.getConstructor().newInstance();
 
         /** 第三：通过Class对象，获得Field对象 */
+        // Field isMarriageField = personClazz.getField("isMarriage"); // java.lang.NoSuchFieldException: isMarriage
         Field isMarriageField = personClazz.getDeclaredField("isMarriage");
-        // isMarriageField.setAccessible(true); // 必须设置为true，如果不设置，则报错：java.lang.IllegalAccessException: Class ReflectionTest can not access a member of class com.muse.Person with modifiers ""
+        isMarriageField.setAccessible(true); // 必须设置为true，如果不设置，则报错：java.lang.IllegalAccessException: Class ReflectionTest can not access a member of class com.muse.Person with modifiers ""
 
         /** 最后：获取字段的类型 */
         Boolean isMarriage = (Boolean) isMarriageField.get(person);

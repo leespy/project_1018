@@ -1,5 +1,4 @@
 /*
- * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
  */
 package com.muse.reflect;
 
@@ -16,9 +15,11 @@ public class Person {
 
     Boolean isMarriage = true;
 
+    // 无参数
     public Person() {
     }
 
+    // 有参数
     public Person(String name, Integer age, Byte sex, Boolean isMarriage) {
         this.name = name;
         this.age = age;
@@ -56,6 +57,10 @@ public class Person {
 
     public void setMarriage(Boolean marriage) {
         isMarriage = marriage;
+    }
+
+    private String privateMethod() {
+        return "This is private method!";
     }
 
     @Override

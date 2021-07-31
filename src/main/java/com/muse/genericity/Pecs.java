@@ -2,8 +2,6 @@ package com.muse.genericity;
 
 import java.util.List;
 
-import org.omg.CORBA.OBJ_ADAPTER;
-
 import com.google.common.collect.Lists;
 import com.muse.reflect.Animal;
 import com.muse.reflect.Cat;
@@ -25,7 +23,7 @@ public class Pecs {
 
     /**
      * 【读取】
-     * 如果要从集合中读取类型T的数据，并且不能写入，可以使用 ? extends 通配符；(Producer Extends)
+     * 如果要从集合中【可读取】类型T的数据，并且【不能写入】，可以使用 ? extends 通配符；(Producer Extends)
      * List<? extends Animal> animals 里面能够存放什么呢？
      * 动物、狗、猫、猪、鸡... 只要是动物，都有可能被存入进animals里。
      */
@@ -43,7 +41,7 @@ public class Pecs {
         // animals.add(new Dog()); // 编译失败
 
         /**
-         * 由于编译器知道它总是Fruit的子类型，因此我们总可以从中读取出Animal对象：
+         * 由于编译器知道它总是Animal的子类型，但并不知道具体是哪个子类。因此我们总可以从中读取出Animal对象：
          */
         Animal animal = animals.get(0);
         Object obj = animals.get(0);

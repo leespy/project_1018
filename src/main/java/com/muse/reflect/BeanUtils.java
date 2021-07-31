@@ -1,5 +1,4 @@
 /*
- * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
  */
 package com.muse.reflect;
 
@@ -10,7 +9,7 @@ import java.lang.reflect.Field;
  */
 public class BeanUtils {
 
-    public static void convertor(Object originObj, Object targetObj) throws Throwable{
+    public static void convertor(Object originObj, Object targetObj) throws Throwable {
         // 第一步，获得class对象
         Class orginClazz = originObj.getClass();
         Class targetClazz = targetObj.getClass();
